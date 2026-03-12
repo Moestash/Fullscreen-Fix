@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.4
+
+- 2.2081
+
 ## v0.0.3
 
 - Switching to windowed from borderless is less broken
