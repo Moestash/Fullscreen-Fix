@@ -4,7 +4,7 @@
 	  {
 		"label": "build",
 		"type": "shell",
-		"command": "geode build",
+		"command": "GEODE_SDK=/Users/Shared/Geode/sdk geode build",
 		"group": {
 		  "kind": "build",
 		  "isDefault": true

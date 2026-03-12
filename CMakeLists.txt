@@ -12,16 +12,24 @@ endif()
 
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(FullscreenFix VERSION 0.0.3)
+project(FullscreenFix VERSION 0.0.4)
 
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS hooks/*.cpp hooks/*.mm structures/*.cpp)
+include(FetchContent)
+
+FetchContent_Declare(
+    fmt
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG 12.1.0
+)
+
+FetchContent_MakeAvailable(fmt)
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS FullscreenFix.mm)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/hooks
-    ${CMAKE_CURRENT_SOURCE_DIR}/structures
 )
 
 foreach(src ${SOURCES})
